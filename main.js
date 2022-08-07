@@ -23,38 +23,35 @@
 // book.read();
 // console.log(book.info());
 
-// const container = document.getElementById('container');
-// const addbtn = document.getElementById('addbtn');
-// console.log(container);
+// // const button = document.getElementById('toggle');
+// const submit = document.getElementById('submit');
 
-// addbtn.addEventListener('click', addBook)
+// button.addEventListener('click',toggle); 
 
-// function addBook(){
-//     console.log('this is working');
-//     addSquare();
+// function toggle(e){
+//     console.log(e.target);
+//     if(e.target.dataset.toggle === 'true'){
+//         e.target.dataset.toggle = 'false';
+//         e.target.textContent = 'not read';
+//     } else {
+//         e.target.dataset.toggle = 'true';
+//         e.target.textContent = 'read';
+//     }
+
 // }
 
-// function addSquare(){
-//     console.log('this is triggered');
-//     const div = document.createElement('div');
-//     container.appendChild(div);
-// }
+// all about the library
 
-const button = document.getElementById('toggle');
-console.log(button);
+let library = [];
 
-button.addEventListener('click',toggle);
-
-function toggle(e){
-    console.log(e.target);
-    
-
-    if(e.target.dataset.toggle === 'true'){
-        e.target.dataset.toggle = 'false';
-        e.target.textContent = 'not read';
-    } else {
-        e.target.dataset.toggle = 'true';
-        e.target.textContent = 'read';
-    }
-
+function Book(title, author, pages){
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
 }
+
+function addBookToLibrary(){
+    let book = new Book()
+}
+
+console.log(document.getElementById('AddBook'));
