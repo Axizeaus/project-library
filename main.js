@@ -23,12 +23,19 @@
 // book.read();
 // console.log(book.info());
 
-const container = document.getElementById('container');
-const addbtn = document.getElementById('addbtn');
-console.log(container);
+// const container = document.getElementById('container');
+// const addbtn = document.getElementById('addbtn');
+// console.log(container);
 
-addbtn.addEventListener('click', addBook)
+// addbtn.addEventListener('click', addBook)
 
-function addBook(){
-    console.log('this is working');
-}
+// function addBook(){
+//     console.log('this is working');
+//     addSquare();
+// }
+
+// function addSquare(){
+//     console.log('this is triggered');
+//     const div = document.createElement('div');
+//     container.appendChild(div);
+// }
