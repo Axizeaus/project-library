@@ -39,3 +39,22 @@
 //     const div = document.createElement('div');
 //     container.appendChild(div);
 // }
+
+const button = document.getElementById('toggle');
+console.log(button);
+
+button.addEventListener('click',toggle);
+
+function toggle(e){
+    console.log(e.target);
+    
+
+    if(e.target.dataset.toggle === 'true'){
+        e.target.dataset.toggle = 'false';
+        e.target.textContent = 'not read';
+    } else {
+        e.target.dataset.toggle = 'true';
+        e.target.textContent = 'read';
+    }
+
+}
