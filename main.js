@@ -23,32 +23,20 @@
 // book.read();
 // console.log(book.info());
 
-// // const button = document.getElementById('toggle');
 // const submit = document.getElementById('submit');
 
 // button.addEventListener('click',toggle); 
 
-// function toggle(e){
-//     console.log(e.target);
-//     if(e.target.dataset.toggle === 'true'){
-//         e.target.dataset.toggle = 'false';
-//         e.target.textContent = 'not read';
-//     } else {
-//         e.target.dataset.toggle = 'true';
-//         e.target.textContent = 'read';
-//     }
-
-// }
 
 // all about the library
 
 let library = [];
+
 const formElement = document.getElementById('addBook');
 const submitBtn = document.getElementById('submit');
 const bookList = document.getElementById('booklist');
 
 submitBtn.onclick = () => addBookToLibrary(formElement[0].value,formElement[1].value,formElement[2].value)
-window.onload = () => makeTable(library);
 
 
 function Book(title, author, pages){
@@ -62,10 +50,61 @@ function addBookToLibrary(title,author,pages){
     library.push(book);
 }
 
-function makeTable(arr){
+function displayBook(arr){
     console.log(arr);
+    let count = 1;
     for (let i of arr){
-        console.log(i);
+        let bookId = count;
+        let title = i.title;
+        let author = i.author;
+        let pages = i.pages;
+        makeTable(bookId,title,author,pages);
+        count++;
     }
 }
-console.log(bookList);
+
+function makeTable(bookId,title, author, pages){
+    const tr = document.createElement('tr');
+    const th = document.createElement('th');
+    const td1 = document.createElement('td');
+    const td2 = document.createElement('td');
+    const td3 = document.createElement('td');
+    const btn = document.createElement('button');
+
+    th.innerHTML = bookId;
+    td1.innerHTML = title;
+    td2.innerHTML = author;
+    td3.innerHTML = pages;
+    btn.innerHTML = 'not read';
+    th.setAttribute('scope', 'row');
+    btn.classList.add('toggle');
+    btn.setAttribute('data-toggle', 'false');
+    btn.addEventListener('mousedown', toggle)
+
+    bookList.appendChild(tr);
+    tr.appendChild(th);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(btn);
+}
+
+function toggle(e){
+    console.log(e.target);
+    if(e.target.dataset.toggle === 'true'){
+        e.target.dataset.toggle = 'false';
+        e.target.textContent = 'not read';
+    } else {
+        e.target.dataset.toggle = 'true';
+        e.target.textContent = 'read';
+    }
+}
+
+// dummy data 
+
+addBookToLibrary('Python', 'snake', 1000)
+addBookToLibrary('Java', 'coffee', 2200)
+
+// end dummy data
+
+displayBook(library);
