@@ -43,6 +43,13 @@
 // all about the library
 
 let library = [];
+const formElement = document.getElementById('addBook');
+const submitBtn = document.getElementById('submit');
+const bookList = document.getElementById('booklist');
+
+submitBtn.onclick = () => addBookToLibrary(formElement[0].value,formElement[1].value,formElement[2].value)
+window.onload = () => makeTable(library);
+
 
 function Book(title, author, pages){
     this.title = title;
@@ -50,8 +57,15 @@ function Book(title, author, pages){
     this.pages = pages;
 }
 
-function addBookToLibrary(){
-    let book = new Book()
+function addBookToLibrary(title,author,pages){
+    let book = new Book(title,author,pages)
+    library.push(book);
 }
 
-console.log(document.getElementById('AddBook'));
+function makeTable(arr){
+    console.log(arr);
+    for (let i of arr){
+        console.log(i);
+    }
+}
+console.log(bookList);

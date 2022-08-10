@@ -9,7 +9,7 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <!-- <table id="booklist">
+    <table>
         <caption>Your Book List</caption>
         <thead>
             <th scope="col">id</th>
@@ -18,22 +18,22 @@
             <th scope="col">pages</th>
             <th scope="col">read or not</th>
         </thead>
-        <tbody>
+        <tbody id="booklist">
             <th scope="row">1</th>
             <td>Sapiens</td>
             <td>Yuval Noah Harari</td>
             <td>1000</td>
             <td><button id= 'toggle' data-toggle='false'>not read</button></td>
         </tbody>
-    </table> --> 
-    <form id="AddBook">
+    </table> 
+    <form id="addBook">
         <label for="title">title:</label>
         <input type="text" name="title" id="title">
         <label for="author">author:</label>
         <input type="text" name="author" id="author">
         <label for="pages">number of pages:</label>
         <input type="number" name="pages" id="pages">
-        <input type="submit" value="submit" id="submit">
+        <input type="button" value="submit" id="submit">
     </form>
 </body>
 </html>
