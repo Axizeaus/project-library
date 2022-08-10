@@ -33,10 +33,18 @@
 let library = [];
 
 const formElement = document.getElementById('addBook');
-const submitBtn = document.getElementById('submit');
 const bookList = document.getElementById('booklist');
 
-submitBtn.onclick = () => addBookToLibrary(formElement[0].value,formElement[1].value,formElement[2].value)
+// submitBtn.onclick = () => addBookToLibrary(formElement[0].value,formElement[1].value,formElement[2].value)
+
+formElement.addEventListener('submit', function(e){
+    submitTest(e);
+}, false);
+
+function submitTest(e){
+    e.preventDefault();
+    console.log('yay');
+}
 
 
 function Book(title, author, pages){
