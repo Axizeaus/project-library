@@ -39,6 +39,7 @@ const bookList = document.getElementById('booklist');
 
 formElement.addEventListener('submit', function(e){
     submitTest(e);
+    clearForm();
 }, false);
 
 function submitTest(e){
@@ -110,6 +111,13 @@ function toggle(e){
         e.target.dataset.toggle = 'true';
         e.target.textContent = 'read';
     }
+}
+
+function clearForm(){
+    formElement[0].value = '';
+    formElement[1].value = '';
+    formElement[2].value = '';
+
 }
 
 // dummy data 
