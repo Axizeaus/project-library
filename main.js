@@ -43,7 +43,11 @@ formElement.addEventListener('submit', function(e){
 
 function submitTest(e){
     e.preventDefault();
-    console.log('yay');
+    const title = e.target.title.value;
+    const author = e.target.author.value;
+    const pages = e.target.pages.value;
+    addBookToLibrary(title,author,pages);
+    displayBook(library);
 }
 
 
@@ -59,7 +63,7 @@ function addBookToLibrary(title,author,pages){
 }
 
 function displayBook(arr){
-    console.log(arr);
+    bookList.innerHTML = '';
     let count = 1;
     for (let i of arr){
         let bookId = count;
