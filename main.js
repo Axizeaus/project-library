@@ -82,24 +82,37 @@ function makeTable(bookId,title, author, pages){
     const td1 = document.createElement('td');
     const td2 = document.createElement('td');
     const td3 = document.createElement('td');
+    const td4 = document.createElement('td');
+    const td5 = document.createElement('td');
     const btn = document.createElement('button');
+    const del = document.createElement('button');
 
     th.innerHTML = bookId;
     td1.innerHTML = title;
     td2.innerHTML = author;
     td3.innerHTML = pages;
     btn.innerHTML = 'not read';
+    del.innerHTML = 'delete';
+
+    tr.setAttribute('data-id', `${bookId}`)
+
     th.setAttribute('scope', 'row');
     btn.classList.add('toggle');
     btn.setAttribute('data-toggle', 'false');
-    btn.addEventListener('mousedown', toggle)
+    btn.addEventListener('mousedown', toggle);
+    del.addEventListener('mousedown', function(e){
+        deleteRow(e);
+    });
 
     bookList.appendChild(tr);
     tr.appendChild(th);
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
-    tr.appendChild(btn);
+    td4.appendChild(btn);
+    td5.appendChild(del);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
 }
 
 function toggle(e){
@@ -117,7 +130,13 @@ function clearForm(){
     formElement[0].value = '';
     formElement[1].value = '';
     formElement[2].value = '';
+}
 
+function deleteRow(e){
+    // const el = e.target.parentElement.parentNode;
+    // const elId = el.getAttribute('data-id');
+    // console.log(el.getAttribute('data-id'));
+    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode)
 }
 
 // dummy data 
