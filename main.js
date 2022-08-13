@@ -1,33 +1,3 @@
-// function Book(title, author, pages, isRead){
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.isRead = false;
-//     this.read = function (){
-//         this.isRead = true
-//     }
-
-//     this.info = function() {
-//         let readOrNot;
-//         if (this.isRead === true){
-//             readOrNot = 'You have read this book.'
-//         } else {
-//             readOrNot = "You haven't read this book."
-//         }
-//         return `${this.title} written by ${this.author}. ${this.pages} pages, ${readOrNot}`
-//     }
-// }
-
-// let book = new Book('Sapiens', 'Yuval Noah Harari', '1000', true)
-// console.log(book.info());
-// book.read();
-// console.log(book.info());
-
-// const submit = document.getElementById('submit');
-
-// button.addEventListener('click',toggle); 
-
-
 // all about the library
 
 let library = [];
@@ -35,22 +5,20 @@ let library = [];
 const formElement = document.getElementById('addBook');
 const bookList = document.getElementById('booklist');
 
-// submitBtn.onclick = () => addBookToLibrary(formElement[0].value,formElement[1].value,formElement[2].value)
-
 formElement.addEventListener('submit', function(e){
-    submitTest(e);
+    submitBook(e);
     clearForm();
 }, false);
 
-function submitTest(e){
+function submitBook(e){
     e.preventDefault();
     const title = e.target.title.value;
     const author = e.target.author.value;
     const pages = e.target.pages.value;
+    
     addBookToLibrary(title,author,pages);
     displayBook(library);
 }
-
 
 function Book(title, author, pages){
     this.title = title;
@@ -132,17 +100,20 @@ function clearForm(){
     formElement[2].value = '';
 }
 
+Array.prototype.remove = function(index){
+    this.splice(index,1)
+}
+
 function deleteRow(e){
-    // const el = e.target.parentElement.parentNode;
-    // const elId = el.getAttribute('data-id');
-    // console.log(el.getAttribute('data-id'));
-    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode)
+    rowId = parseInt(e.target.parentNode.parentNode.getAttribute('data-id'));
+    library.remove(rowId - 1)
+    e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode);
 }
 
 // dummy data 
 
-addBookToLibrary('Python', 'snake', 1000)
-addBookToLibrary('Java', 'coffee', 2200)
+addBookToLibrary('Python', 'pythonista', 1000)
+addBookToLibrary('Java', 'coffee machine', 2200)
 
 // end dummy data
 
