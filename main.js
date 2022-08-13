@@ -109,12 +109,3 @@ function deleteRow(e){
     library.remove(rowId - 1)
     e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode);
 }
-
-// dummy data 
-
-addBookToLibrary('Python', 'pythonista', 1000)
-addBookToLibrary('Java', 'coffee machine', 2200)
-
-// end dummy data
-
-displayBook(library);
